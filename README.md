@@ -29,6 +29,8 @@ Other dependencies
 
 Some code blocks in the notebooks require [Cytoscape](http://www.cytoscape.org/) (>3.5.1) to be running as the background. 
 
+To run the firework layout, you will also need to install the a Cytoscape app [AllegroLayout](https://www.dropbox.com/s/uwcpjes6vv212fm/allegrolayout-2.2.2.jar?dl=0). Once the jar file is downloaded, go to `Apps` -> `Install from File` -> open the jar file.
+
 
 References
 ------------
