@@ -6,9 +6,27 @@ import numpy as np
 import networkx as nx
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from sklearn.metrics.pairwise import pairwise_distances
 
+import seaborn as sns
+# pretty colors
+COLORS10 = sns.color_palette("tab10", 10).as_hex()
+sns.set_palette(COLORS10)
+
 from cyrest_helpers import *
+
+def min_max_scale(X_train, X_test):
+    '''Scale data to (0, 1)'''
+    preprocessor = preprocessing.MinMaxScaler().fit(X_train)
+    X_train = preprocessor.transform(X_train)
+    X_test = preprocessor.transform(X_test)
+    return X_train, X_test
+
+def get_random_block_from_data(data, batch_size):
+    start_index = np.random.randint(0, len(data) - batch_size)
+    return data[start_index:(start_index + batch_size)]
+
 
 def plot_embed(X_coords, labels, figsize=(6, 6)):
     '''Scatter plot for the coordinates colored by their labels'''
@@ -88,4 +106,5 @@ def create_graph_by_threshold_knn(adj_mat, percentile, k=1, X=None):
     G_thres = create_graph_by_threshold(adj_mat, percentile)
     G_knn = create_knn_graph(X, k=k)
     return nx.compose(G_thres, G_knn)
+
 
