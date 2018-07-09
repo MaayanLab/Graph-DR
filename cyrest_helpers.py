@@ -1,11 +1,12 @@
 # modules to interact with CyREST, the API of Cytoscape
+import json
 import requests
 from py2cytoscape.data.cyrest_client import CyRestClient
 import py2cytoscape.cytoscapejs as renderer
 
 
 # Params for CyREST
-IP = '127.0.0.1'
+IP = 'localhost'
 PORT = 1234
 BASE_URL = 'http://%s:%s/v1' % (IP, PORT)
 HEADERS = {'Content-Type': 'application/json'}

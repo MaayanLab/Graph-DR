@@ -4,7 +4,7 @@ from collections import Counter, OrderedDict
 
 import numpy as np
 import networkx as nx
-from sklearn import preprocessing
+from sklearn import preprocessing, neighbors
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from sklearn.metrics.pairwise import pairwise_distances
@@ -70,7 +70,7 @@ def plot_degree_distribution(G):
     """
     fig, ax = plt.subplots(figsize=(5,5))
     
-    degrees = G.degree().values()
+    degrees = [k for n, k in G.degree()]
     degrees = dict(Counter(degrees))
     x = degrees.keys()
     y = degrees.values()
