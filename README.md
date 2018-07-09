@@ -3,8 +3,25 @@ Graph-DR: Benchmarking of dimensionality reduction algorithms
 
 A series of Jupyter Notebooks experimenting on different dimensionality reduction algorithms and their performance on the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). 
 
-Installation
+Get started
 ------------
+
+There are two options to run the notebooks in this repository:
+
+### 1. Docker
+
+First find the IP address of the Docker machine by:
+    
+    docker-machine ip
+
+Then, start to run the docker image:
+
+    docker run -it -p 80:8888 --add-host="localhost:10.0.2.2" maayanlab/graph-dr
+
+Next, you can open a browser and go to the IP address of your Docker machine, which is usually http://192.168.99.100. You can find the token in the terminal running the Docker image.
+
+
+### 2. virtualenv
 
 The recommended way to run these notebooks live is to set up a isolated Python envrionment using [virtualenv](https://virtualenv.pypa.io/en/stable/), after cloning this repository:
 

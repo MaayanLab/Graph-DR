@@ -1,6 +1,7 @@
 # modules to interact with CyREST, the API of Cytoscape
 import json
 import requests
+import numpy as np
 from py2cytoscape.data.cyrest_client import CyRestClient
 import py2cytoscape.cytoscapejs as renderer
 
