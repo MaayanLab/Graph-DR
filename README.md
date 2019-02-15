@@ -10,15 +10,11 @@ There are two options to run the notebooks in this repository:
 
 ### 1. Docker
 
-First find the IP address of the Docker machine by:
-    
-    docker-machine ip
+To start running the docker image:
 
-Then, start to run the docker image:
+    docker run -it -p 8888:8888 maayanlab/graph-dr
 
-    docker run -it -p 80:8888 --add-host="localhost:10.0.2.2" maayanlab/graph-dr
-
-Next, you can open a browser and go to the IP address of your Docker machine, which is usually http://192.168.99.100. You can find the token in the terminal running the Docker image.
+Next, you can open a browser and go to http://localhost:8888. You will be required to enter the token to access the notebook server, which can be found in the terminal running the Docker image.
 
 
 ### 2. virtualenv
