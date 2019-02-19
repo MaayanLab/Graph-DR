@@ -9,3 +9,9 @@ ADD . /home/jovyan
 RUN pip install py2cytoscape \
 	umap-learn==0.2.1 
 
+# Change the permissions for all notebooks
+USER root
+RUN chmod 777 *.ipynb
+
+# Switch back the notebook user
+USER $NB_UID
