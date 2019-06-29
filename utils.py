@@ -4,6 +4,7 @@ from collections import Counter, OrderedDict
 
 import numpy as np
 import networkx as nx
+import igraph as ig
 from sklearn import preprocessing, neighbors
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
@@ -14,7 +15,10 @@ import seaborn as sns
 COLORS10 = sns.color_palette("tab10", 10).as_hex()
 sns.set_palette(COLORS10)
 
-from cyrest_helpers import *
+try:
+    from cyrest_helpers import *
+except ModuleNotFoundError:
+    pass
 
 def min_max_scale(X_train, X_test):
     '''Scale data to (0, 1)'''
@@ -108,3 +112,23 @@ def create_graph_by_threshold_knn(adj_mat, percentile, k=1, X=None):
     return nx.compose(G_thres, G_knn)
 
 
+def nx_graph_to_igraph(G):
+    '''convert nx.Graph to ig.Graph via adjacency matrix
+    '''
+    g = ig.Graph.Adjacency((nx.to_numpy_matrix(G) > 0).tolist(), mode=ig.ADJ_UNDIRECTED)
+    return g
+
+
+def network_layout(G, layout='drl', **layout_kwargs):
+    '''First convert to ig.Graph object, then apply layout functions.
+    layout can be: ['drl', 'fr', 'kk', 'lgl', ...]
+    See: https://igraph.org/python/doc/tutorial/tutorial.html#layout-algorithms
+    '''
+    g = nx_graph_to_igraph(G)
+    # Perform Fruchterman-Reingold force-dirceted layout algorithm for the graph
+    layt = g.layout(layout, **layout_kwargs)
+    coords = np.array(layt.coords)
+    return coords
+
+def plot_network(layout):
+    return
