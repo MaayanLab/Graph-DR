@@ -7,7 +7,8 @@ ADD . /home/jovyan
 
 # Install additional python packages
 RUN pip install py2cytoscape \
-	umap-learn==0.2.1 
+	umap-learn==0.2.1 \
+	python-igraph==0.7.1.post6
 
 # Change the permissions for all notebooks
 USER root

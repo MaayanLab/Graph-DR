@@ -12,7 +12,7 @@ There are two options to run the notebooks in this repository:
 
 To start running the docker image:
 
-    docker run -it -p 8888:8888 maayanlab/graph-dr
+    docker run -it -p 8888:8888 maayanlab/graph-dr:2019
 
 Next, you can open a browser and go to http://localhost:8888. You will be required to enter the token to access the notebook server, which can be found in the terminal running the Docker image.
 
@@ -57,3 +57,4 @@ References
 + [van der Maaten: Learning a Parametric Embedding by Preserving Local Structure](http://lvdmaaten.github.io/publications/papers/AISTATS_2009.pdf)
 + [Kokiopoulou and Saad: Enhanced graph-based dimensionality reduction with repulsion Laplaceans](http://www.sciencedirect.com/science/article/pii/S0031320309001460)
 + [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/abs/1802.03426)
++ [Unsupervised learning: the curious pupil](https://deepmind.com/blog/unsupervised-learning/)

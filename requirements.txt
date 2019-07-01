@@ -7,3 +7,4 @@ py2cytoscape
 tensorflow==0.12.1
 umap-learn==0.2.1
 jupyter==1.0.0
+python-igraph==0.7.1.post6

@@ -125,10 +125,7 @@ def network_layout(G, layout='drl', **layout_kwargs):
     See: https://igraph.org/python/doc/tutorial/tutorial.html#layout-algorithms
     '''
     g = nx_graph_to_igraph(G)
-    # Perform Fruchterman-Reingold force-dirceted layout algorithm for the graph
+    # Perform a layout algorithm for the graph
     layt = g.layout(layout, **layout_kwargs)
     coords = np.array(layt.coords)
     return coords
-
-def plot_network(layout):
-    return
